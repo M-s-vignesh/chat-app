@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<style>
+
+body {
+    background: #222D32;
+    font-family: 'Roboto', sans-serif;
+}
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+
+   
+}
+.black{
+	background: #1A2226;
+}
+
+.login-text {
+   
+    padding-left: 0px;
+    color: #A2A4A4;
+}
+	
+
+</style>
+<br>
+<div class="jumbotron black login-text text-center">
+	
+    {% if session.logged_in == NULL%}
+        <h1>Welcome to the Chat</h1><br>
+        <a href="/register" class="btn btn-primary btn-lg">Sign Up</a>
+        <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% else %}
+        <h1>Hi {{ session.s_name }}</h1>
+    
+        <a href="/chatting/{{ session.uid }}" class="btn btn-primary btn-lg">Let's Start Chat</a>
+    {% endif %}
+
+</div>
+{% endblock %}
